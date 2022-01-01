@@ -9,22 +9,56 @@ let baseUrl = process.env.REACT_APP_BASE_URL
 function App() {
   const [location, setLocation] = useState("");
   const [weather, setWeather] = useState();
+  const [coordinates, setCoordinates] = useState();
   useEffect(() => {
-    getWeather(city)
+    getCoordinates()
+    // getWeather(city)
+    getWeather()
   }, []);
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    alert(`Submitting Name ${location}`)
+    // alert(`Submitting Name ${location}`)
     getWeather(location)
   }
+  function getCoordinates() {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    function success(pos) {
+      var crd = pos.coords;
+      var lat = crd.latitude.toString();
+      var lng = crd.longitude.toString();
+      var coords = [lat, lng];
+      console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+      // getCity(coordinates);
+      setCoordinates({
+        lat:lat,
+        lng:lng
+      })
+      console.log(coordinates);
+      return;
+
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }
   function getWeather(place){
+    // getCoordinates()
     // weather?lat={lat}&lon={lon}&appid={apiKey}
-    fetch(`${baseUrl}forecast?appid=${apiKey}&q=${place}`)
-      .then(response => response.json())
-      .then(data => {
-        setWeather(data)
-        console.log(data)
-      });
+    // fetch(`${baseUrl}forecast?appid=${apiKey}&q=${place}`)
+    // fetch(`${baseUrl}forecast?appid=${apiKey}&lat=${coordinates.lat}&lon=${coordinates.lng}`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     setWeather(data)
+    //     console.log(data)
+    //   });
   }
 
   // let weatherList = weather?.list?.map((item, index) => {
