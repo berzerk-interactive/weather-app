@@ -25,14 +25,14 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={weather?.city?.name ? '' : 'centered'}>
         <input type="text" placeholder='Enter location'
           autoFocus
           value={location}
           onChange={e => setLocation(e.target.value)}></input>
         <button type='submit' value="Submit">Get Weather</button>
       </form>
-      {weather ? <h1>Weather Forcast For: {weather?.city?.name}</h1> :''}
+      {weather?.city?.name ? <h1>Weather Forcast For: {weather?.city?.name}</h1> :''}
       <WeatherList list={weather?.list}></WeatherList>
     </div>
   );
