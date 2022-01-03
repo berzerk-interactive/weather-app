@@ -8,9 +8,7 @@ let baseUrl = process.env.REACT_APP_BASE_URL
 function App() {
   const [location, setLocation] = useState("");
   const [weather, setWeather] = useState();
-  // useEffect(() => {
-  //   getWeather(city)
-  // }, []);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     getWeather(location)
