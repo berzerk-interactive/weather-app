@@ -53,7 +53,7 @@ function App() {
         </form>)
         :
         (<form onSubmit={handleSubmit} className={weather?.city?.name ? 'pure-form' : 'pure-form centered'} >
-          <input type="text" placeholder='Enter location'
+          <input type="text" placeholder='Enter City'
             autoFocus
             value={location}
             onChange={e => setLocation(e.target.value)}></input>
