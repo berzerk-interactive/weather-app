@@ -24,7 +24,7 @@ function App() {
     setLocation(null)
     setWeather(null)
   }
-  function handleErrors(response) {
+  const handleErrors = (response) => {
     if (!response.ok) {
       console.log(response);
       setError(`${response.status} ${response.statusText} Please try again`)
@@ -32,13 +32,12 @@ function App() {
     }
     return response;
   }
-  function getWeather(place){
+  const getWeather = (place) => {
     fetch(`${baseUrl}forecast?appid=${apiKey}&q=${place}`)
       .then(handleErrors)
       .then(response => response.json())
       .then(data => {
         setWeather(data)
-        console.log(data)
       });
   }
 
