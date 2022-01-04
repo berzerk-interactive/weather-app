@@ -2,8 +2,11 @@
   li {
     list-style-type: none;
     height: 110px;
+    border-bottom: solid 1px;
+    padding: 20px;
     img {
       float: left;
+      margin-right: -100px;
     }
   }
 }
