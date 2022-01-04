@@ -1,4 +1,3 @@
-import { wait } from '@testing-library/user-event/dist/utils';
 import React, { useState, useEffect } from 'react';
 import './App.scss';
 import WeatherList  from './components/weatherlist/WeatherList';
@@ -34,7 +33,6 @@ function App() {
     return response;
   }
   function getWeather(place){
-    // weather?lat={lat}&lon={lon}&appid={apiKey}
     fetch(`${baseUrl}forecast?appid=${apiKey}&q=${place}`)
       .then(handleErrors)
       .then(response => response.json())
