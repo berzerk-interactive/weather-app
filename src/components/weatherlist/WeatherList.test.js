@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import WeatherList from './WeatherList';
-import { wait } from '@testing-library/user-event/dist/utils';
 
 test('renders forecast list', async () => {
     render(<WeatherList list={data}/>);

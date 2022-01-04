@@ -5,7 +5,7 @@ describe('Example Weather App', () => {
     cy.visit('http://localhost:3000/')
   })
 
-  it('Has Location Input ', () => {
+  it('Has Location Input', () => {
     cy.get('input').should('exist')
   })
   it('Has Get Weather Button', () => {
@@ -16,7 +16,5 @@ describe('Example Weather App', () => {
     cy.get('input').type(`Denver {enter}`)
     cy.get('#weatherlist li')
       .should('have.length', 40)
-      // .last()
-      // .should('have.text', newItem)
   })
 })

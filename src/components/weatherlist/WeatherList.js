@@ -11,7 +11,7 @@ export default function WeatherList({list}) {
         <ul id="weatherlist">
             {list?.map((item, index) => {
                 return <li key={index}>
-                            <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} />
+                    <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} alt={item.weather[0].description}/>
                             <div>{dayjs(item.dt_txt).fromNow()} : {item.dt_txt} </div>
                             <div> </div>
                             <h2>{item.weather[0].description}</h2>

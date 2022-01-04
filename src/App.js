@@ -10,7 +10,7 @@ function App() {
   const [weather, setWeather] = useState();
   const [error, setError] = useState()
   useEffect(() => {
-    if(location?.length == 0){
+    if(location?.length === 0){
       setError(null)
     }
   }, [location])
